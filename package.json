@@ -1,12 +1,12 @@
 {
     "description": "whatsapp pair code generator by kysage",
     "main": "./index.js",
-  "engines" : { 
+    "engines" : { 
     "npm" : ">=9.7.2",
     "node" : ">=20.0.0"
     },
     "scripts": {
-    "start": "node pair.js"
+    "start": "node index.js"
   },
   "dependencies": {
     "@whiskeysockets/baileys": "^6.5.0",
