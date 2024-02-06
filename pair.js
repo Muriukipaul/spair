@@ -57,7 +57,8 @@ router.get('/', async (req, res) => {
                 }, {
                     quoted: spikeses
                 });
-				await client.sendMessage(client.user.id, { text: `\`\`\`▢ Do not share this file with anybody\`\`\`` }, {quoted: spikeses});
+				await client.sendMessage(client.user.id, { text: `\`\`\`Do not share this file with anybody\`\`\`` }, {quoted: spikeses});
+       await client.sendMessage(client.user.id, { text: `\`\`\`If you encounter any problem, Feel free to holla me on whatsapp https://wa.me/6285760758259\`\`\`` }, {quoted: spikeses});
         await delay(100);
         return await removeFile('./session');
         process.exit(0)
