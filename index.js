@@ -15,7 +15,7 @@ res.sendFile(__path + '/main.html')
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.listen(PORT, () => {
-    console.log(`Telegram: kysage1\nGitHub: @kysage1\nInstsgram: kysage1\n\nServer running on http://localhost:` + PORT)
+    console.log(`Telegram: kysage1\nGitHub: @kysage1\nInstsgram: kysage2\n\nServer running on http://localhost:` + PORT)
 })
 
 module.exports = app
