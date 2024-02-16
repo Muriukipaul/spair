@@ -12,161 +12,104 @@
       align-items: center;
       height: 100vh;
       margin: 0;
-      background-color: #2C3E50; /* Dark background color */
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Cool font family */
-      color: #ECF0F1; /* Light text color */
+      background-image: url("https://telegra.ph/file/4149bc7ccf3de0ebc6c3e.png"); /* Image link */
+      background-size: cover;
+      background-position: center;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #f8f8f2; /* Monokai font color */
     }
 
     .container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .box {
-      width: 300px;
-      height: 330px;
-      padding: 20px;
-      position: relative;
-      text-align: center;
-      background-color: rgba(44, 62, 80, 0.8); /* Semi-transparent dark box */
-      border-radius: 10px;
-      transform: perspective(1000px) rotateY(0deg);
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
-      position: relative;
-    }
-
-    #text {
-      color: #ECF0F1; /* Light text color */
-    }
-
-    .input-container input {
-      border-radius: 0.8rem 0 0 0.8rem;
-      background: #34495E; /* Darker background for input */
-      box-shadow: inset 13px 13px 10px #2C3E50, inset -13px -13px 10px #405A70;
-      width: 89%;
-      flex-basis: 75%;
-      padding: 1rem;
-      border: none;
-      border-left: 2px solid #E74C3C; /* Red border */
-      color: #ECF0F1; /* Light text color */
-      transition: all 0.2s ease-in-out;
-    }
-
-    .input-container button {
-      flex-basis: 25%;
-      padding: 1rem;
-      background: #3498DB; /* Blue button color */
-      font-weight: 900;
-      letter-spacing: 0.3rem;
-      text-transform: uppercase;
-      color: white;
-      border: none;
+      max-width: 400px;
       width: 100%;
-      border-radius: 0 1rem 1rem 0;
-      transition: all 0.2s ease-in-out;
-    }
-
-    .input-container button:hover {
-      background: #2980B9; /* Darker blue on hover */
-    }
-
-    @media (max-width: 500px) {
-      .input-container {
-        flex-direction: column;
-      }
-
-      .input-container input {
-        border-radius: 0.8rem;
-      }
-
-      .input-container button {
-        padding: 1rem;
-        border-radius: 0.8rem;
-      }
-    }
-
-    .centered-text {
+      padding: 20px;
+      border-radius: 10px;
+      background-color: rgba(46, 52, 54, 0.9); /* Darkened Monokai background */
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
       text-align: center;
+    }
+
+    h1, h3 {
+      margin: 10px 0;
+      font-family: 'Monaco', 'Courier New', monospace; /* Monokai-like font */
+    }
+
+    input[type="number"] {
+      padding: 10px;
+      width: calc(100% - 22px); /* Adjusted width to account for padding */
+      border: none;
+      background-color: #49483e; /* Monokai input background */
+      color: #f8f8f2; /* Monokai input font color */
+      border-radius: 5px;
+      outline: none;
+      margin-top: 10px; /* Added margin to match background style */
+    }
+
+    input[type="number"]::placeholder {
+      color: #75715e; /* Monokai input placeholder color */
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #66D9EF; /* Monokai button color */
+      color: #272822; /* Monokai button font color */
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      margin-top: 10px; /* Added margin to match background style */
+    }
+
+    button:hover {
+      background-color: #4CAF50; /* Monokai button hover color */
+    }
+
+    #copy {
+      cursor: pointer;
+      color: #66D9EF; /* Monokai link color */
+      text-decoration: underline;
+    }
+
+    #copy:hover {
+      text-decoration: none;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <div class="main">
-      <div class="box" id="box">
-        <div id="text">
-          <i class="fa fa-user"></i>
-          <p>
-            <h3 class="centered-text">SPIKE WEB PAIR</h3>
-            <br>
-            <h6>Enter your number with country code.</h6>
-            <div class="input-container">
-              <input placeholder="+254xxx" type="number" id="number" placeholder="enter your phone number with country code" name="">
-              <button id="submit">enter</button>
-            </div>
-
-            <a id="waiting-message" class="centered-text" style="display: none;">in process...</a>
-            <br>
-            <br>
-            <main id="pair"></main>
-          </p>
-        </div>
-      </div>
-    </div>
+    <h1>Pair with Me</h1>
+    <h3>Link with phone number</h3>
+    <input type="number" placeholder="+254xxx" id="number" required>
+    <button id="submit">Enter</button>
+    <div id="pair"></div>
   </div>
-  <script
-    src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.0.0-alpha.1/axios.min.js"
-  ></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.4/axios.min.js"></script>
   <script>
-    let a = document.getElementById("pair");
-    let b = document.getElementById("submit");
-    let c = document.getElementById("number");
-    let box = document.getElementById("box");
-
-    async function Copy() {
-      let text = document.getElementById("copy").innerText;
-      let obj = document.getElementById("copy");
-      await navigator.clipboard.writeText(obj.innerText.replace('CODE: ', ''));
-      obj.innerText = "COPIED";
-      obj.style = "color:blue;font-weight:bold";
-      obj.size = "5";
-      setTimeout(() => {
-        obj.innerText = text;
-        obj.style = "color:black;font-weight-bold";
-        obj.size = "5";
-      }, 500);
-    }
-
-    b.addEventListener("click", async (e) => {
-      e.preventDefault();
-      if (!c.value) {
-        a.innerHTML = '<a style="color:black;font-weight:bold">Enter your whatsapp number with country code.</a><br><br>';
-      } else if (c.value.replace(/[^0-9]/g, "").length < 11) {
-        a.innerHTML = '<a style="color:black;font-weight:bold">Invalid number format</a><br><br>';
-      } else {
-        const bc = c.value.replace(/[^0-9]/g, "");
-        let bb = "";
-        let bbc = "";
-        const cc = bc.split('');
-        cc.map(a => {
-          bbc += a;
-          if (bbc.length == 3) {
-            bb += " " + a;
-          } else if (bbc.length == 8) {
-            bb += " " + a;
-          } else {
-            bb += a;
-          }
-        });
-        c.type = "text";
-        c.value = "+" + bb;
-        c.style = "color:black;font-size:20px";
-        a.innerHTML = '<a style="color:black;font-weight:bold">wait a moment...</a><br><br>';
-        let { data } = await axios(`/code?number=${bc}`);
-        let code = data.code || "Service Unavailable";
-        a.innerHTML = '<font id="copy" onclick="Copy()" style="color:red;font-weight:bold" size="5">CODE: <span style="color:black;font-weight:bold">' + code + '</span></font><br><br><br>';
+    document.getElementById("submit").addEventListener("click", async () => {
+      const numberInput = document.getElementById("number");
+      const number = numberInput.value.trim();
+      
+      if (!number) {
+        alert("Please enter a phone number.");
+        return;
       }
+      
+      const response = await axios.get(`/code?number=${number}`);
+      const code = response.data.code || "Service Unavailable";
+      
+      document.getElementById("pair").innerHTML = `<p style="color: #66D9EF;">CODE: <span id="copy">${code}</span></p>
+      <button id="copyButton">Copy Code</button>`;
+      
+      document.getElementById("copy").addEventListener("click", async () => {
+        await navigator.clipboard.writeText(code);
+        alert("Code copied to clipboard.");
+      });
+
+      document.getElementById("copyButton").addEventListener("click", async () => {
+        await navigator.clipboard.writeText(code);
+        alert("Code copied to clipboard.");
+      });
     });
   </script>
 </body>
