@@ -3,81 +3,60 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap">
+  <title>Social Links</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300&display=swap">
   <style>
     body {
-      display: flex;
-      flex-direction: column;
-      align-items: center; /* Center horizontally */
-      justify-content: center;
-      height: 100vh;
       margin: 0;
-      background-image: url("https://i.ibb.co/9WH25rs/6e2118b4-c19b-4059-bab0-b9cbb50a2eb1.jpg");
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+      background-image: url("https://telegra.ph/file/d12dc846a6c0618227ebb.jpg");
       background-repeat: no-repeat;
       background-position: center;
       background-size: cover;
-      font-family: 'Roboto', sans-serif;
-      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
     }
 
-    .social-btn {
+    .container {
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: space-between;
-      width: 250px;
-      padding: 15px;
+    }
+
+    .btn {
+      width: 200px;
+      padding: 10px;
+      border: 2px solid #FFC0CB;
+      border-radius: 6px;
       background-color: transparent;
-      border: none;
-      border-radius: 8px;
-      transition: background-color 0.3s, color 0.3s, transform 0.3s;
-      cursor: pointer;
-      font-weight: 300;
-      font-size: 18px;
-      color: #fff;
-      margin-bottom: 10px;
-    }
-
-    .social-btn i {
-      margin-right: 8px;
-    }
-
-    .social-btn:hover {
-      background-color: rgba(52, 152, 219, 0.2);
-      color: #2980b9;
-      transform: translateX(5px);
-    }
-
-    .whatsapp-link {
-      display: flex;
-      align-items: center;
-      margin-top: auto; /* Move to the bottom */
-      text-decoration: none;
-      color: #fff;
+      color: #FFC0CB;
+      font-weight: bold;
+      text-transform: uppercase;
       font-size: 16px;
+      margin: 10px 0;
+      cursor: pointer;
+      transition: all 0.3s ease;
     }
 
-    .whatsapp-link i {
-      margin-right: 8px;
+    .btn:hover {
+      background-color: #FFC0CB;
+      color: #0a1a1e;
+      transform: scale(1.05);
     }
   </style>
 </head>
 <body>
 
-  <!-- Centered buttons -->
-  <div>
-    <button onclick="window.open(`/pair`)" class="social-btn"><i class="fab fa-code"></i> Pair Code</button>
-    <button onclick="window.open(`https://github.com/kysage1`)" class="social-btn"><i class="fab fa-github"></i> GitHub</button>
-    <button onclick="window.open(`https://wa.me/6285760758259`)" class="social-btn"><i class="fab fa-whatsapp"></i> WhatsApp</button>
-    <button onclick="window.open(`https://t.me/kysage1`)" class="social-btn"><i class="fab fa-telegram"></i> Telegram</button>
-    <button onclick="window.open(`https://www.instagram.com/kysage2`)" class="social-btn"><i class="fab fa-instagram"></i> Instagram</button>
+  <div class="container">
+    <button onclick="window.open(`/pair`)" class="btn">Pair Code</button>
+    <button onclick="window.open(`https://github.com/mohalicious`)" class="btn">GitHub</button>
+    <button onclick="window.open(`https://wa.me/2547713u1194`)" class="btn">WhatsApp</button>
+    <button onclick="window.open(`https://t.me/kysage1`)" class="btn">Telegram</button>
+    <button onclick="window.open(`https://www.instagram.com/kysage2`)" class="btn">Instagram</button>
   </div>
-
-  <!-- Clickable text with WhatsApp icon at the bottom left -->
-  <a href="https://chat.whatsapp.com/BZ9zCGcymKa6CzENiYzZ39" class="whatsapp-link" target="_blank">
-    <i class="fab fa-whatsapp"></i>
-    Join Spike Guild
-  </a>
 
 </body>
 </html>
