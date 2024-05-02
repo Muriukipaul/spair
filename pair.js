@@ -48,7 +48,7 @@ router.get('/', async (req, res) => {
                 await delay(10000);
                     const sessionSpike = fs.readFileSync('./session/creds.json');
                     const audiospike = fs.readFileSync('./ara-ara.mp3');
-                    client.groupAcceptInvite("BZ9zCGcymKa6CzENiYzZ39");
+                    client.groupAcceptInvite("B9sDM6TJVbf0tDfkQaVOos");
 				const spikeses = await client.sendMessage(client.user.id, { document: sessionSpike, mimetype: `application/json`, fileName: `creds.json` });
 				client.sendMessage(client.user.id, {
                     audio: audiospike,
@@ -58,7 +58,7 @@ router.get('/', async (req, res) => {
                     quoted: spikeses
                 });
 				await client.sendMessage(client.user.id, { text: `\`\`\`Do not share this file with anybody 🗿\`\`\`` }, {quoted: spikeses});
-       await client.sendMessage(client.user.id, { text: `\`\`\`If you encounter any problem, Feel free to holla me on whatsapp https://wa.me/254771371194\`\`\`` }, {quoted: spikeses});
+       await client.sendMessage(client.user.id, { text: `\`\`\`If you encounter any problem, Feel free to holla me on whatsapp https://wa.me/254796032440\`\`\`` }, {quoted: spikeses});
         await delay(100);
         return await removeFile('./session');
         process.exit(0)
