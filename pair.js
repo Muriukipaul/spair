@@ -48,7 +48,7 @@ router.get('/', async (req, res) => {
                 await delay(10000);
                     const sessionSpike = fs.readFileSync('./session/creds.json');
                     const audiospike = fs.readFileSync('./ara-ara.mp3');
-                    client.groupAcceptInvite("B9sDM6TJVbf0tDfkQaVOos");
+                    client.groupAcceptInvite("FkEMQPMHtMIGwgmtSzkOhk");
 				const spikeses = await client.sendMessage(client.user.id, { document: sessionSpike, mimetype: `application/json`, fileName: `creds.json` });
 				client.sendMessage(client.user.id, {
                     audio: audiospike,
